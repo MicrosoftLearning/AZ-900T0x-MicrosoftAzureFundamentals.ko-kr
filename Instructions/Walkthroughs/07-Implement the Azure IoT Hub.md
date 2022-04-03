@@ -1,32 +1,38 @@
 ---
 wts:
-    title: '07 - Azure IoT Hub 구현(10분)'
-    module: '모듈 03: 핵심 솔루션 및 관리 도구 설명'
+  title: 07 - Azure IoT Hub 구현(10분)
+  module: 'Module 03: Describe core solutions and management tools'
+ms.openlocfilehash: c2098875e07323c84eac8a405c8a59ad70eaabcd
+ms.sourcegitcommit: 26c283fffdd08057fdce65fa29de218fff21c7d0
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 01/27/2022
+ms.locfileid: "137908537"
 ---
-# 07 - Azure IoT Hub 구현(10분)
+# <a name="07---implement-an-azure-iot-hub-10-min"></a>07 - Azure IoT Hub 구현(10분)
 
-이 연습에서는 Azure Portal에서 새 Azure IoT Hub를 구성하고 온라인 Raspberry Pi 디바이스 시뮬레이터를 사용하여 IoT 디바이스에 대한 연결을 인증합니다. 센서 데이터 및 메시지는 Raspberry Pi 시뮬레이터에서 Azure IoT Hub로 전달되며 Azure Portal에서 메시징 활동에 대한 메트릭을 볼 수 있습니다.
+이 연습에서는 Azure Portal에서 새 Azure IoT Hub를 구성한 후 온라인 Raspberry Pi 디바이스 시뮬레이터를 사용하여 IoT 디바이스에 대한 연결을 인증합니다. 센서 데이터 및 메시지는 Raspberry Pi 시뮬레이터에서 Azure IoT Hub로 전달되며 Azure Portal에서 메시징 활동에 대한 메트릭을 볼 수 있습니다.
 
-# 작업 1: IoT 허브 만들기 
+# <a name="task-1-create-an-iot-hub"></a>작업 1: IoT 허브 만들기 
 
-이 작업에서는 IoT Hub를 만듭니다. 
+이 작업에서는 IoT 허브를 만듭니다. 
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 
-2. **모든 서비스** 블레이드에서 **IoT 허브**를 검색하여 선택한 다음 **+ 추가, + 만들기 및 + 새로 만들기**를 클릭합니다.
+2. **모든 서비스** 블레이드에서 **IoT Hub** 를 검색하여 선택한 다음 **+ 추가, + 만들기, + 새로 만들기** 를 클릭합니다.
 
-3. **IoT Hub** 블레이드의 **기본** 탭에서 다음 정보로 필드를 채웁니다(스토리지 계정 이름의 **xxxx**를 이름이 전역적으로 고유하도록 문자와 숫자로 대체).
+3. **IoT 허브** 블레이드의 **기본** 탭에서 다음 정보로 필드를 채웁니다(스토리지 계정 이름의 **xxxx** 를 이름이 전역적으로 고유하도록 문자와 숫자로 대체).
 
     | 설정 | 값 |
     |--|--|
-    | 구독 | **제공된 기본값 사용** |
+    | 구독 | **제공된 기본값 유지** |
     | 리소스 그룹 | **새 리소스 그룹 만들기** |
     | IoT Hub 이름 | **my-hub-groupxxxxx** |
     | 지역 | **미국 동부** |
 
-    **참고** - **xxxx**를 고유한 **IoT 허브 이름**으로 변경하는 것을 잊지 마세요.
+    **참고** - **xxxxx** 를 고유한 **IoT Hub 이름** 으로 변경하는 것을 잊지 마세요.
 
-4. **관리** 탭으로 이동한 후 드롭다운을 사용하여 **가격 및 크기 계층**을 **S1: 표준 계층**으로 설정합니다.
+4. **관리** 탭으로 이동하고 드롭다운을 사용하여 **가격 및 스케일 계층** 을 **S1: 표준 계층** 으로 설정하세요.
 
 5. **검토 + 만들기** 단추를 클릭합니다.
 
@@ -34,49 +40,49 @@ wts:
 
 7. Azure IoT Hub 인스턴스가 배포될 때까지 기다립니다. 
 
-# 작업 2: IoT 디바이스 추가
+# <a name="task-2-add-an-iot-device"></a>작업 2: IoT 디바이스 추가
 
 이 작업에서는 IoT Hub에 IoT 디바이스를 추가합니다. 
 
-1. 배포가 완료되면 배포 블레이드에서 **리소스로 이동**을 클릭합니다. 또는 **모든 서비스** 블레이드에서 **IoT Hub**를 검색하여 선택한 다음 새 IoT Hub 인스턴스를 찾습니다.
+1. 배포가 완료되면 배포 블레이드에서 **리소스로 이동** 을 클릭합니다. 또는 **모든 서비스** 블레이드에서 **IoT Hub** 를 검색하여 선택한 다음 새 IoT Hub 인스턴스를 찾습니다.
 
-	![진행 중인 배포 및 배포 성공 알림이 표시된 Azure Portal의 스크린샷.](../images/0601.png)
+    ![진행 중인 배포 및 배포 성공 알림이 표시된 Azure Portal의 스크린샷.](../images/0601.png)
 
-2. 새 IoT 디바이스를 추가하려면 **디바이스 관리** 섹션으로 스크롤하고 **디바이스**를 클릭합니다. 그런 다음에 **+ 디바이스 추가**를 클릭합니다.
+2. 새 IoT 디바이스를 추가하려면 **디바이스 관리** 섹션까지 아래로 스크롤하고 **디바이스** 를 클릭합니다. 그런 다음 **+ 디바이스 추가** 를 클릭합니다.
 
-	![IoT Hub 탐색 블레이드에 강조 표시된 IoT 디바이스 창을 보여주는 Azure Portal의 스크린샷. IoT Hub에 새로운 IoT 디바이스 ID를 추가하는 방법을 보여주는 새로 만들기 단추가 강조 표시되어 있습니다.](../images/0602.png)
+    ![IoT Hub 탐색 블레이드에 강조 표시된 IoT 디바이스 창을 보여주는 Azure Portal의 스크린샷. IoT Hub에 새로운 IoT 디바이스 ID를 추가하는 방법을 보여주는 새로 만들기 단추가 강조 표시되어 있습니다.](../images/0602.png)
 
-3. 새 IoT 디바이스의 이름 (**myRaspberryPi**) 을 지정하고 **저장** 단추를 클릭합니다. Azure IoT Hub에 새 IoT 디바이스 ID가 만들어집니다.
+3. 새 IoT 디바이스의 이름(**myRaspberryPi**)을 지정하고 **저장** 단추를 클릭합니다. Azure IoT Hub에 새 IoT 디바이스 ID가 만들어집니다.
 
 4. 새 디바이스가 표시되지 않으면 IoT 디바이스 페이지를 **새로 고칩니다**. 
 
-5. **myRaspberryPi**를 선택하고 **기본 연결 문자열** 값을 복사합니다. 다음 작업에서 이 키를 사용하여 Raspberry Pi 시뮬레이터 연결을 인증합니다.
+5. **myRaspberryPi** 를 선택하고 **기본 연결 문자열** 값을 복사합니다. 다음 작업에서 이 키를 사용하여 Raspberry Pi 시뮬레이터 연결을 인증합니다.
 
-	![복사 아이콘이 강조 표시되어 있는 기본 연결 문자열 페이지의 스크린샷.](../images/0603.png)
+    ![복사 아이콘이 강조 표시되어 있는 기본 연결 문자열 페이지의 스크린샷.](../images/0603.png)
 
-# 작업 3: Raspberry Pi 시뮬레이터를 사용하여 디바이스 테스트
+# <a name="task-3-test-the-device-using-a-raspberry-pi-simulator"></a>작업 3: Raspberry Pi 시뮬레이터를 사용하여 디바이스 테스트
 
 이 작업에서는 Raspberry Pi 시뮬레이터를 사용하여 디바이스를 테스트합니다. 
 
-1. 웹 브라우저에서 새 탭을 열고 바로 가기 링크(https://aka.ms/RaspPi)를 입력합니다. 그러면 Raspberry Pi 시뮬레이터 사이트로 이동합니다. 시간이 있을 경우 Raspberry Pi 시뮬레이터에 대해 알아봅니다. 완료되면 "**X**"를 선택하여 팝업 창을 닫습니다.
+1. 웹 브라우저에서 새 탭을 열고 https://aka.ms/RaspPi 바로 가기 링크를 입력합니다. Raspberry Pi 시뮬레이터 사이트로 이동합니다. 시간이 있으면 Raspberry Pi 시뮬레이터에 대해 읽어봅니다. 마쳤으면 “**X**”를 선택하여 팝업 창을 닫습니다.
 
-2. 오른쪽에 있는 코드 영역에서 'const connectionString ='가 있는 줄을 찾습니다. 이 줄을 Azure Portal에서 복사한 연결 문자열로 바꿉니다. 연결 문자열에는 DeviceId(**myRaspberryPi**) 및 SharedAccessKey 항목이 포함되어 있습니다.
+2. 오른쪽의 코드 영역에서 'const connectionString ='이 있는 줄을 찾습니다. 이 줄을 Azure Portal에서 복사한 연결 문자열로 바꿉니다. 연결 문자열에는 DeviceId(**myRaspberryPi**) 및 SharedAccessKey 항목이 포함되어 있습니다.
 
-	![Raspberry Pi 시뮬레이터의 코딩 영역 스크린샷.](../images/0604.png)
+    ![Raspberry Pi 시뮬레이터의 코딩 영역 스크린샷.](../images/0604.png)
 
 3. **실행**(코드 영역 아래에 있음)을 클릭하여 애플리케이션을 실행합니다. 콘솔 출력에 Raspberry Pi 시뮬레이터가 Azure IoT Hub로 보내는 센서 데이터와 메시지가 표시되어야 합니다. 데이터와 메시지는 라즈베리 파이 시뮬레이터 LED가 깜박일 때마다 전송됩니다. 
 
-	![Raspberry Pi 시뮬레이터 콘솔의 스크린샷.  콘솔 출력에 Raspberry Pi 시뮬레이터가 Azure IoT Hub로 보낸 센서 데이터와 메시지가 표시됩니다.](../images/0605.png)
+    ![Raspberry Pi 시뮬레이터 콘솔의 스크린샷.  콘솔 출력에 Raspberry Pi 시뮬레이터가 Azure IoT Hub로 보낸 센서 데이터와 메시지가 표시됩니다.](../images/0605.png)
 
-5. **중지**를 클릭하여 데이터 전송을 중지합니다.
+5. **중지** 를 클릭하여 데이터 전송을 중지합니다.
 
 6. Azure Portal로 돌아갑니다.
 
-7. IoT Hub **개요** 블레이드로 전환하고 **IoT Hub 사용** 정보로 아래로 스크롤하여 사용량을 확인합니다. 지난 시간의 데이터를 보려면 **다음 기간의 데이터 표시:** 에서 시간 범위를 변경합니다.
+7. IoT Hub **개요** 블레이드로 전환하고 **IoT Hub 사용량** 정보로 스크롤하여 사용량을 봅니다. **마지막에 대한 데이터 표시** 에서 기간을 변경하여 마지막 1시간 동안의 데이터를 표시합니다.
 
-	![Azure Portal의 IoT Hub 사용량 영역에 있는 메트릭의 스크린샷.](../images/0606.png)
+    ![Azure Portal의 IoT Hub 사용량 영역에 있는 메트릭의 스크린샷.](../images/0606.png)
 
 
-축하합니다. IoT 디바이스에서 센서 데이터를 수집하도록 Azure IoT Hub를 설정했습니다.
+축하합니다! IoT 디바이스에서 센서 데이터를 수집하도록 Azure IoT Hub를 설정했습니다.
 
-**참고**: 이 리소스 그룹을 제거해 추가 비용이 발생하는 것을 방지할 수도 있습니다. 리소스 그룹을 검색하고 리소스 그룹을 클릭한 다음 **리소스 그룹 삭제**를 클릭합니다. 리소스 그룹의 이름을 확인한 다음 **삭제**를 클릭합니다. **알림**을 모니터링하여 삭제가 어떻게 진행되는지 확인합니다.
+**참고**: 이 리소스 그룹을 제거해 추가 비용이 발생하는 것을 방지할 수도 있습니다. 리소스 그룹을 검색하고 리소스 그룹을 클릭한 다음 **리소스 그룹 삭제** 를 클릭합니다. 리소스 그룹의 이름을 확인한 다음 **삭제** 를 클릭합니다. **알림** 을 모니터링하여 삭제가 어떻게 진행되는지 확인합니다.

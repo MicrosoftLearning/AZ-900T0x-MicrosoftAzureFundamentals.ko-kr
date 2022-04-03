@@ -1,33 +1,39 @@
 ---
 wts:
-    title: '11 - CLI로 VM 만들기(10분)'
-    module: '모듈 03: 핵심 솔루션 및 관리 도구 설명'
+  title: 11 - CLI로 VM 만들기(10분)
+  module: 'Module 03: Describe core solutions and management tools'
+ms.openlocfilehash: 6e88e520011ccf4f1d02fd14038a457226492082
+ms.sourcegitcommit: 26c283fffdd08057fdce65fa29de218fff21c7d0
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 01/27/2022
+ms.locfileid: "137908489"
 ---
-# 11 - CLI로 VM 만들기(10분)
+# <a name="11---create-a-vm-with-the-cli-10-min"></a>11 - CLI로 VM 만들기(10분)
 
 이 연습에서는 Cloud Shell을 구성하고, Azure CLI 모듈을 사용하여 리소스 그룹 및 가상 머신을 만들고, Azure Advisor 권장 사항을 검토합니다. 
 
-# 작업 1: Cloud Shell 구성 
+# <a name="task-1-configure-the-cloud-shell"></a>작업 1: Cloud Shell 구성 
 
-이 작업에서는 Cloud Shell을 구성한 다음 Azure CLI를 사용하여 리소스 그룹과 가상 머신을 만듭니다.  
+이 작업에서는 Cloud Shell을 구성한 후에 Azure CLI를 사용하여 리소스 그룹과 가상 머신을 만듭니다.  
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 
-2. Azure Portal에서 오른쪽 상단의 아이콘을 클릭하여 **Azure Cloud Shell**을 엽니다.
+2. Azure Portal에서 오른쪽 상단의 아이콘을 클릭하여 **Azure Cloud Shell** 을 엽니다.
 
     ![Azure Portal의 Azure Cloud Shell 아이콘 스크린샷.](../images/1002.png)
    
-3. Azure Cloud Shell 시작하기 대화 상자에서 메시지가 표시되면 **Bash** 또는 **PowerShell**을 선택하고 **Bash**를 선택합니다. 
+3. Azure Cloud Shell 시작 대화 상자에서 **Bash** 또는 **PowerShell** 을 선택하라는 메시지가 표시되면 **Bash** 를 선택합니다. 
 
-4. 새 창이 열리면서 **탑재된 스토리지 없음**이라는 메시지가 표시됩니다. **고급 설정**을 선택합니다.
+4. **장착된 스토리지가 없습니다** 라는 새 창이 열립니다. **고급 설정** 을 선택합니다.
 
-5. 고급 설정 화면에서 다음 필드를 채우고 스토리지 만들기를 클릭합니다.
+5. 고급 설정 화면에서 다음 필드를 채운 후에 스토리지 만들기를 클릭합니다.
     - 리소스 그룹: **새 리소스 그룹 만들기**
     - 스토리지 계정: 전역적으로 고유한 이름을 사용하는 새 계정 만들기(예: loudshellxyzstorage)
-    - 파일 공유: 새 파일을 만들고 이름을 cloudshellfileshare로 지정합니다.
+    - 파일 공유: 새 파일 공유를 만들고 이름을 cloudshellfileshare로 지정
 
 
-# 작업 2: CLI를 사용하여 가상 머신을 만들기
+# <a name="task-2-use-cli-to-create-a-virtual-machine"></a>작업 2: CLI를 사용하여 가상 머신 만들기
 
 이 작업에서는 Azure CLI를 사용하여 리소스 그룹과 가상 머신을 만듭니다.
 
@@ -42,7 +48,7 @@ wts:
     az group list --output table
     ```
 
-4. Cloud Shell에 아래 명령을 입력하고 각 줄(마지막 줄 제외) 다음에 백슬래시(`\`) 문자가 있는지 확인합니다. 전체 명령을 한 줄에 입력하는 경우에는 백슬래시 문자를 사용하지 마세요. 
+4. Cloud Shell에서 아래 명령을 입력하고, 마지막 줄을 제외한 모든 줄 뒤에 백슬래시(`\`) 문자가 있는지 확인합니다. 전체 명령을 한 줄에 입력하는 경우에는 백슬래시 문자를 사용하지 마세요. 
 
     ```cli
     az vm create \
@@ -60,12 +66,12 @@ wts:
 
 5. 명령 실행이 완료되면 브라우저 창에서 Cloud Shell 창을 닫습니다.
 
-6. Azure Portal에서 **가상 머신**을 검색하고 **myVMCLI**가 실행 중인지 확인합니다.
+6. Azure Portal에서 **가상 머신** 을 검색하고 **myVMCLI** 가 실행 중인지 확인합니다.
 
     ![myVMPS가 실행 중인 가상 머신 페이지의 스크린샷.](../images/1101.png)
 
 
-# 작업 3: Cloud Shell에서 명령 실행
+# <a name="task-3-execute-commands-in-the-cloud-shell"></a>작업 3: Cloud Shell에서 명령 실행
 
 이 작업에서는 Cloud Shell에서 CLI 명령을 실행하는 연습을 합니다. 
 
@@ -73,7 +79,7 @@ wts:
 
 2. Cloud Shell 창의 왼쪽 위 드롭다운 메뉴에서 **Bash** 가 선택되어 있는지 확인합니다.
 
-3. 이름, 리소스 그룹, 위치 및 상태 등 프로비저닝한 가상 머신에 대한 정보를 검색합니다. PowerState가 **running** 입니다.
+3. 이름, 리소스 그룹, 위치 및 상태 등 프로비저닝한 가상 머신에 대한 정보를 검색합니다. PowerState가 **running** 인지 확인합니다.
 
     ```cli
     az vm show --resource-group myRGCLI --name myVMCLI --show-details --output table 
@@ -91,7 +97,7 @@ wts:
     az vm show --resource-group myRGCLI --name myVMCLI --show-details --output table 
     ```
 
-# 작업 4: Azure Advisor 권장 사항 검토
+# <a name="task-4-review-azure-advisor-recommendations"></a>작업 4: Azure Advisor 권장 사항 검토
 
 이 작업에서는 Azure Advisor 권장 사항을 검토합니다.
 
@@ -99,7 +105,7 @@ wts:
 
 1. **모든 서비스** 블레이드에서 **Advisor** 를 검색하고 선택합니다. 
 
-2. **Advisor** 블레이드에서 **개요**를 선택합니다. 권장 사항이 안정성, 보안, 성능 및 비용으로 그룹화되어 있습니다. 
+2. **Advisor** 블레이드에서 **개요** 를 선택합니다. 권장 사항이 안정성, 보안, 성능 및 비용으로 그룹화되어 있습니다. 
 
     ![Advisor 개요 페이지의 스크린샷. ](../images/1103.png)
 
@@ -115,6 +121,6 @@ wts:
 
 6. 시간이 있으면 Azure CLI를 사용하여 실험을 계속하세요. 
 
-축하합니다. Cloud Shell을 구성하고, Azure CLI를 사용하여 가상 머신을 만들고, Azure CLI 명령을 실행하고, Advisor 권장 사항을 검토했습니다.
+축하합니다! Cloud Shell을 구성하고, Azure CLI를 사용하여 가상 머신을 만들고, Azure CLI 명령을 실행하고, Advisor 권장 사항을 검토했습니다.
 
-**참고**: 이 리소스 그룹을 제거해 추가 비용이 발생하는 것을 방지할 수도 있습니다. 리소스 그룹을 검색하고 리소스 그룹을 클릭한 다음 **리소스 그룹 삭제**를 클릭합니다. 리소스 그룹의 이름을 확인한 다음 **삭제**를 클릭합니다. **알림**을 모니터링하여 삭제가 어떻게 진행되는지 확인합니다.
+**참고**: 이 리소스 그룹을 제거해 추가 비용이 발생하는 것을 방지할 수도 있습니다. 리소스 그룹을 검색하고 리소스 그룹을 클릭한 다음 **리소스 그룹 삭제** 를 클릭합니다. 리소스 그룹의 이름을 확인한 다음 **삭제** 를 클릭합니다. **알림** 을 모니터링하여 삭제가 어떻게 진행되는지 확인합니다.
