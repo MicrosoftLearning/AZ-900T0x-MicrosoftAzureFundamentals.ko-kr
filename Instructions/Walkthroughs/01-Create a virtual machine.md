@@ -2,12 +2,12 @@
 wts:
   title: 01 - 포털에서 가상 머신 만들기(10분)
   module: Module 02 - Core Azure Services (Workloads)
-ms.openlocfilehash: 2e2a613f965d41405b025166876b28be391f10d8
-ms.sourcegitcommit: 26c283fffdd08057fdce65fa29de218fff21c7d0
+ms.openlocfilehash: 010d6a19a66f6ac92627720379a4eb850b2ee423
+ms.sourcegitcommit: 4a0bfef63f98844f16e2a364d156e96382b8fac5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/27/2022
-ms.locfileid: "137908376"
+ms.lasthandoff: 05/04/2022
+ms.locfileid: "144556873"
 ---
 # <a name="01---create-a-virtual-machine-in-the-portal-10-min"></a>01 - 포털에서 가상 머신 만들기(10분)
 
@@ -18,7 +18,7 @@ ms.locfileid: "137908376"
 # <a name="task-1-create-the-virtual-machine"></a>작업 1: 가상 머신 만들기 
 1. Azure Portal에 로그인: **https://portal.azure.com**
 
-3. Portal 메뉴의 **모든 서비스** 블레이드에서 **가상 머신** 을 검색하고 선택한 후에 **+추가, +만들기, +새로 만들기** 를 클릭하고 드롭다운에서 **+가상 머신** 을 선택합니다.
+3. Portal 메뉴의 **모든 서비스** 블레이드에서 **가상 머신** 을 검색하고 선택한 후에 **+만들기** 를 클릭하고 드롭다운에서 **+Azure 가상 머신** 을 선택합니다.
 
 4. **기본** 탭에서 다음 정보를 채웁니다(다른 항목은 기본값을 사용).
 
